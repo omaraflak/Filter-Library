@@ -93,7 +93,7 @@ List<User> result = UserFilter.builder()
  
 Unlike Stream from Java 8, this library will return a list of **references** and will not waste memory. If you need a copy, just add the method `copy()` to the filter.
  
-The library also include a method called `postOperation` which executes commands on the user(s) that respect your filter. For example, if you want to search the user which `id` is 42 and change its name to "answer" you would do it just like this :
+The library also includes a method called `postOperation` which executes commands on the user(s) that respect your filter. For example, if you want to search the user which `id` is 42 and change its name to "answer" you would do it like this :
 
 ```Java
 UserFilter.builder()
@@ -106,6 +106,7 @@ UserFilter.builder()
         })
         .on(users);
  ```
+ Note that you don't even have to store the result of the function.
  
  # Gradle
 
@@ -114,6 +115,6 @@ implementation 'me.aflak.libraries:filter-annotation:1.0'
 annotationProcessor 'me.aflak.libraries:filter-processor:1.0'
 ```
  
- Many other functionnalities are available. I'll let you see for youreself !
+ Many other functionnalities are available. I will let you see for yourself !
  
  Any feedback would be greatly appreciated !
