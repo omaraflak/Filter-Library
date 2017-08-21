@@ -1,0 +1,35 @@
+apply plugin: 'java-library'
+
+ext {
+    bintrayRepo = 'maven'
+    bintrayName = 'filter'
+
+    publishedGroupId = 'me.aflak.libraries'
+    libraryName = 'Filter'
+    artifact = 'filter-annotation'
+
+    libraryDescription = 'Android library to filter any object in a list using a simple annotation.'
+
+    siteUrl = 'https://github.com/omaflak/Filter-Library'
+    gitUrl = 'https://github.com/omaflak/Filter-Library.git'
+
+    libraryVersion = '1.0'
+
+    developerId = 'omaflak'
+    developerName = 'Omar Aflak'
+    developerEmail = 'aflakomar@gmail.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+}
+
+sourceCompatibility = "1.7"
+targetCompatibility = "1.7"
+
+apply from: 'https://raw.githubusercontent.com/omaflak/Bintray/master/install.gradle'
+apply from: 'https://raw.githubusercontent.com/omaflak/Bintray/master/bintray.gradle'
