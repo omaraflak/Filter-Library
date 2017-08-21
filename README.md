@@ -66,6 +66,13 @@ UserFilter.builder()
         .on(users);
  ```
  
+ # Gradle
+
+```Gradle
+implementation 'me.aflak.libraries:filter-annotation:1.0'
+annotationProcessor 'me.aflak.libraries:filter-processor:1.0'
+```
+ 
  Many other functionnalities are available. I'll let you see for youreself !
  
  Any feedback would be greatly appreciated !
