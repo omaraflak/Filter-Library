@@ -40,7 +40,7 @@ If your class contains an object as attribute, for instance :
 
 ```Java
 @Filterable
-public class AUser {
+public class User {
     private int age;
     private String name;
     private Shape shape;
