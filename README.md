@@ -1,4 +1,4 @@
-# Filter Library
+# Filter Library [ ![Download](https://api.bintray.com/packages/omaflak/maven/filter-annotation/images/download.svg) ](https://bintray.com/omaflak/maven/filter-annotation/_latestVersion)
 
 Android library to filter any object in a list using a simple annotation.
 
