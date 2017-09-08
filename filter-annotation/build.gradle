@@ -2,7 +2,7 @@ apply plugin: 'java-library'
 
 ext {
     bintrayRepo = 'maven'
-    bintrayName = 'filter'
+    bintrayName = 'filter-annotation'
 
     publishedGroupId = 'me.aflak.libraries'
     libraryName = 'Filter'
@@ -26,10 +26,9 @@ ext {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-}
 
-sourceCompatibility = "1.7"
-targetCompatibility = "1.7"
+    compile 'com.google.code.gson:gson:2.8.1'
+}
 
 apply from: 'https://raw.githubusercontent.com/omaflak/Bintray/master/install.gradle'
 apply from: 'https://raw.githubusercontent.com/omaflak/Bintray/master/bintray.gradle'
