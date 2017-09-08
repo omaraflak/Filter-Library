@@ -110,8 +110,11 @@ UserFilter.builder()
  
  # Gradle
 
-Coming soon !
- 
+```Gradle
+implementation 'me.aflak.libraries:filter-annotation:1.0'
+annotationProcessor 'me.aflak.libraries:filter-processor:1.0'
+```
+
  Many other functionnalities are available. I will let you see for yourself !
  
  Any feedback would be greatly appreciated !
