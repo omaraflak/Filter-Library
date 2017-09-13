@@ -116,7 +116,7 @@ repositories {
 }
 
 dependencies {
-    annotationProcessor 'me.aflak.libraries:filter-processor:1.0'
+	annotationProcessor 'me.aflak.libraries:filter-processor:1.0'
     implementation 'me.aflak.libraries:filter-annotation:1.0'
 }
 ```
