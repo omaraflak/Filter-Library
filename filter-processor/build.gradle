@@ -25,16 +25,13 @@ ext {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation project(':filter-annotation')
 
-    implementation 'com.squareup:javapoet:1.9.0'
+    api 'com.squareup:javapoet:1.9.0'
     implementation 'com.google.code.gson:gson:2.8.1'
     implementation 'com.google.auto.service:auto-service:1.0-rc3'
 }
-
-sourceCompatibility = JavaVersion.VERSION_1_7
-targetCompatibility = JavaVersion.VERSION_1_7
 
 apply from: 'https://raw.githubusercontent.com/omaflak/Bintray/master/install.gradle'
 apply from: 'https://raw.githubusercontent.com/omaflak/Bintray/master/bintray.gradle'

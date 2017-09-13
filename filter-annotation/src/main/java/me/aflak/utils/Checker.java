@@ -33,10 +33,10 @@ public class Checker {
     private static final String NEED_NUMBER = "Need a number";
     private static final String NEED_TEXT = "Need a text";
 
-    public static boolean matches(Object object, Filter filter, Class type){
+    public static boolean matches(Object object, Filter filter, Class<?> type){
         try {
             Method method = type.getMethod("on", Collection.class, Filter.class);
-            List result = (List) method.invoke(null, Collections.singleton(object), filter);
+            List<?> result = (List<?>) method.invoke(null, Collections.singleton(object), filter);
             return result.size()!=0;
         }
         catch(NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {

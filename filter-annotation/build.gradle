@@ -25,9 +25,9 @@ ext {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
 
-    compile 'com.google.code.gson:gson:2.8.1'
+    api 'com.google.code.gson:gson:2.8.1'
 }
 
 apply from: 'https://raw.githubusercontent.com/omaflak/Bintray/master/install.gradle'

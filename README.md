@@ -110,12 +110,16 @@ UserFilter.builder()
  
  # Gradle
 
-<!---
 ```Gradle
-implementation 'me.aflak.libraries:filter-annotation:1.0'
-annotationProcessor 'me.aflak.libraries:filter-processor:1.0'
+repositories {
+	mavenLocal()
+}
+
+dependencies {
+    annotationProcessor 'me.aflak.libraries:filter-processor:1.0'
+    implementation 'me.aflak.libraries:filter-annotation:1.0'
+}
 ```
---->
 
 **Coming soon !**
  
