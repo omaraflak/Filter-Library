@@ -120,7 +120,5 @@ dependencies {
     implementation 'me.aflak.libraries:filter-annotation:1.0'
 }
 ```
-
-**Coming soon !**
  
 Any feedback would be greatly appreciated !
