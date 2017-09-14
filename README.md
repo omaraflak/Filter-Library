@@ -111,8 +111,8 @@ UserFilter.builder()
  # Gradle
 
 ```Gradle
-implementation 'me.aflak.libraries:filter-annotation:1.0'
-annotationProcessor 'me.aflak.libraries:filter-processor:1.0'
+implementation 'me.aflak.libraries:filter-annotation:1.2'
+annotationProcessor 'me.aflak.libraries:filter-processor:1.2'
 ```
  
 Any feedback would be greatly appreciated !
