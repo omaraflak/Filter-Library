@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
                     .size().greaterThan(175)
                     .build(), SpecFilter.class)
                 .firstName().regex(Pattern.compile("^[A-Z].*"))
-                .postOperation(new Operation<User>() {
+                .forEach(new Operation<User>() {
                     @Override
                     public void execute(User object) {
                         Log.d(TAG, object.getFirstName()+" "+object.getLastName());

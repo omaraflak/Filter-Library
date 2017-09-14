@@ -204,16 +204,16 @@ public class FilterProcessor extends AbstractProcessor {
                         .methodBuilder("not")
                         .returns(filterGeneratedClass)
                         .addModifiers(Modifier.PUBLIC)
-                        .addStatement("builder.not()")
+                        .addStatement("builder.getEquality().setNot(true)")
                         .addStatement("return this")
                         .build();
 
-                MethodSpec postOperationMethod = MethodSpec
-                        .methodBuilder("postOperation")
+                MethodSpec forEachMethod = MethodSpec
+                        .methodBuilder("forEach")
                         .returns(filterGeneratedClass)
                         .addModifiers(Modifier.PUBLIC)
                         .addParameter(paramOperationClass, "operation")
-                        .addStatement("builder.postOperation(operation)")
+                        .addStatement("builder.getFilter().setPostOperation(operation)")
                         .addStatement("return this")
                         .build();
 
@@ -222,7 +222,7 @@ public class FilterProcessor extends AbstractProcessor {
                         .returns(filterGeneratedClass)
                         .addModifiers(Modifier.PUBLIC)
                         .addParameter(paramConditionClass, "condition")
-                        .addStatement("builder.extraCondition(condition)")
+                        .addStatement("builder.getFilter().setExtraCondition(condition)")
                         .addStatement("return this")
                         .build();
 
@@ -230,7 +230,7 @@ public class FilterProcessor extends AbstractProcessor {
                         .methodBuilder("copy")
                         .returns(filterGeneratedClass)
                         .addModifiers(Modifier.PUBLIC)
-                        .addStatement("builder.copy()")
+                        .addStatement("builder.getFilter().setCopy(true)")
                         .addStatement("return this")
                         .build();
 
@@ -370,7 +370,7 @@ public class FilterProcessor extends AbstractProcessor {
                         .addMethod(onMethodV3)
                         .addMethod(onMethodV3Static)
                         .addMethod(notMethod)
-                        .addMethod(postOperationMethod)
+                        .addMethod(forEachMethod)
                         .addMethod(extraConditionMethod)
                         .addMethod(copyMethod)
                         .addMethod(onSuccessMethod);
@@ -380,7 +380,7 @@ public class FilterProcessor extends AbstractProcessor {
                             .methodBuilder(fieldInfo.getFieldName())
                             .addModifiers(Modifier.PUBLIC)
                             .returns(paramFilterBuilderGeneratedClass)
-                            .addStatement("builder.setAttribute($S)", fieldInfo.getFieldName())
+                            .addStatement("builder.getEquality().setAttribute($S)", fieldInfo.getFieldName())
                             .addStatement("return builder")
                             .build();
 
@@ -451,36 +451,10 @@ public class FilterProcessor extends AbstractProcessor {
                     .addStatement("return filter")
                     .build();
 
-            MethodSpec notMethod = MethodSpec
-                    .methodBuilder("not")
-                    .returns(void.class)
-                    .addStatement("equality.setNot(true)")
-                    .build();
-
-            MethodSpec postOperationMethod = MethodSpec
-                    .methodBuilder("postOperation")
-                    .returns(void.class)
-                    .addParameter(Operation.class, "operation")
-                    .addStatement("this.filter.setPostOperation(operation)")
-                    .build();
-
-            MethodSpec extraConditionMethod = MethodSpec
-                    .methodBuilder("extraCondition")
-                    .returns(void.class)
-                    .addParameter(Condition.class, "condition")
-                    .addStatement("this.filter.setExtraCondition(condition)")
-                    .build();
-
-            MethodSpec copyMethod = MethodSpec
-                    .methodBuilder("copy")
-                    .returns(void.class)
-                    .addStatement("this.filter.setCopy(true)")
-                    .build();
-
-            MethodSpec setAttributeMethod = MethodSpec
-                    .methodBuilder("setAttribute")
-                    .addParameter(String.class, "attribute")
-                    .addStatement("equality.setAttribute(attribute)")
+            MethodSpec getEqualityMethod = MethodSpec
+                    .methodBuilder("getEquality")
+                    .returns(Equality.class)
+                    .addStatement("return equality")
                     .build();
 
             List<MethodSpec> builderComparatorsMethods = new ArrayList<>();
@@ -517,11 +491,7 @@ public class FilterProcessor extends AbstractProcessor {
                     .addMethod(addComparedMethod)
                     .addMethod(addComparedV2Method)
                     .addMethod(getFilterMethod)
-                    .addMethod(notMethod)
-                    .addMethod(postOperationMethod)
-                    .addMethod(extraConditionMethod)
-                    .addMethod(copyMethod)
-                    .addMethod(setAttributeMethod)
+                    .addMethod(getEqualityMethod)
                     .addMethods(builderComparatorsMethods);
 
             try {

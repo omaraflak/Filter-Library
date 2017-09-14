@@ -14,6 +14,7 @@ public class Checker {
         checkers.add(CheckerSpec.create("matches", Filter.class, Class.class));
         checkers.add(CheckerSpec.create("regex", Pattern.class));
         checkers.add(CheckerSpec.create("equalsTo", Object.class));
+        checkers.add(CheckerSpec.create("equalsIgnoreCase", CharSequence.class));
         checkers.add(CheckerSpec.create("contains", CharSequence.class));
         checkers.add(CheckerSpec.create("startsWith", CharSequence.class));
         checkers.add(CheckerSpec.create("endsWith", CharSequence.class));
@@ -56,6 +57,13 @@ public class Checker {
             return ((Number)object).doubleValue()==((Number)o).doubleValue();
         }
         return object.equals(o);
+    }
+
+    public static boolean equalsIgnoreCase(Object object, CharSequence o) {
+        if (object instanceof CharSequence) {
+            return object.toString().equalsIgnoreCase(o.toString());
+        }
+        throw new IllegalArgumentException(NEED_TEXT);
     }
 
     public static boolean contains(Object object, CharSequence o) {

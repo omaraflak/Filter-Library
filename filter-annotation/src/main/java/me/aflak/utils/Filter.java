@@ -26,10 +26,6 @@ public class Filter {
         this.equalities.add(equality);
     }
 
-    public void setEqualities(List<Equality> equalities) {
-        this.equalities = equalities;
-    }
-
     public Condition getExtraCondition() {
         return extraCondition;
     }
