@@ -93,12 +93,12 @@ List<User> result = UserFilter.builder()
  
 Unlike Stream from Java 8, this library will return a list of **references** and will not waste memory. If you need a copy, just add the method `copy()` to the filter.
  
-The library also includes a method called `postOperation` which executes commands on the user(s) that respect your filter. For example, if you want to search the user which `id` is 42 and change its name to "answer" you would do it like this :
+The library also includes a method called `forEach` which executes commands on the user(s) that respect your filter. For example, if you want to search the user which `id` is 42 and change its name to "answer" you would do it like this :
 
 ```Java
 UserFilter.builder()
         .id().equalsTo(42)
-        .postOperation(new Operation<User>() {
+        .forEach(new Operation<User>() {
             @Override
             public void execute(User object) {
                 object.setName("Answer");
