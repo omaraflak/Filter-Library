@@ -89,6 +89,14 @@ List<User> result = UserFilter.builder()
         .on(users);
 ```
 
+With lambdas : 
+
+```Java
+List<User> result = UserFilter.builder()
+        .extraCondition(this::someCrazyCondition)
+        .on(users);
+```
+
  # Difference with Java 8 Stream
  
 Unlike Stream from Java 8, this library will return a list of **references** and will not waste memory. If you need a copy, just add the method `copy()` to the filter.
@@ -105,7 +113,17 @@ UserFilter.builder()
             }
         })
         .on(users);
- ```
+```
+
+With lambdas :
+ 
+```Java 
+UserFilter.builder()
+        .id().equalsTo(42)
+        .forEach(user -> user.setName("Answer"))
+        .on(users);
+```
+  
  Note that you don't even have to store the result of the function.
  
  # Gradle
